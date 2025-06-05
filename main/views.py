@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.views import View
 from .models import *
+
 class IndexView(View):
     def get(self, request):
         return render(request, 'index.html')
@@ -35,3 +36,23 @@ class LatestTransfersView(View):
             'transfers': transfers,
         }
         return render(request, 'latest-transfers.html', context)
+
+class PlayersView(View):
+    def get(self, request):
+        return render(request, 'players.html')
+
+class U_20_PlayersView(View):
+    def get(self, request):
+        return render(request, 'U_20_players.html')
+
+class TryoutsView(View):
+    def get(self, request):
+        return render(request, 'tryouts.html')
+
+class StatsView(View):
+    def get(self, request):
+        return render(request, 'stats.html')
+
+class AboutView(View):
+    def get(self, request):
+        return render(request, 'about.html')

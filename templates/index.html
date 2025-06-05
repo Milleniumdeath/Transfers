@@ -5,10 +5,10 @@
         <div class="countries">
           <a href="{% url 'clubs' %}"> CLUBS </a>
           <a href="{% url 'latest-transfers' %}"> LATEST TRANSFERS </a>
-          <a href="./players.html"> PLAYERS </a>
-          <a href="./U-20 players.html"> U-20 PLAYERS </a>
-          <a href="./tryouts.html"> TRYOUTS </a>
-          <a href="./stats.html"> STATS </a>
+          <a href="{% url 'players' %}"> PLAYERS </a>
+          <a href="{% url 'U_20_players' %}"> U-20 PLAYERS </a>
+          <a href="{% url 'tryouts'%}"> TRYOUTS </a>
+          <a href="{% url 'stats'%}"> STATS </a>
         </div>
       </div>
 {% endblock %}
