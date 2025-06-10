@@ -13,6 +13,11 @@ class IndexView(View):
 class ClubsView(View):
     def get(self, request):
         clubs = Club.objects.all()
+
+        country = request.GET.get('country')
+        if country is not None:
+            clubs = clubs.filter(country__id=country)
+
         context = {
             'clubs': clubs
         }
