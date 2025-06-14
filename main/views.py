@@ -102,11 +102,11 @@ class Top50expenditureclubsView(View):
 
 class TransfersRecordsView(View):
     def get(self,request):
-        transfers = Transfer.objects.filter(price__gte=50).order_by('-price')
+        transfers = Transfer.objects.all().order_by('-price')[:50]
         context = {
             'transfers': transfers,
         }
-        return render(request, 'transfer-records.html', context)
+        return render(request, 'stats/transfer-records.html', context)
 
 class Top50incomeclubsView(View):
     def get(self,request):
