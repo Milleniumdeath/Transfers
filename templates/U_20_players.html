@@ -8,7 +8,8 @@
           <table class="content-nav">
             <thead>
               <tr>
-                <td>#player</td>
+                <td>#</td>
+                <td>player</td>
                 <td>age</td>
                 <td>
                   club <br />
@@ -24,84 +25,15 @@
         </div>
       <div class="content">
         <table class="players">
+          {% for player in players%}
           <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
+            <td>{{ forloop.counter}}</td>
+            <td>{{ player.name    }}</td>
+            <td>{{ player.age     }}</td>
+            <td>{{ player.club    }}</td>
+            <td>{{ player.price   }}</td>
           </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td>1 Pedri</td>
-            <td>18</td>
-            <td>Barcelona</td>
-            <td>120</td>
-          </tr>
+          {% endfor %}
         </table>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae soluta

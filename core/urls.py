@@ -22,7 +22,9 @@ urlpatterns = [
 
 urlpatterns += [
     path('stats/top-150-accurate-predictions/', Top150AccuratePredictionView.as_view(), name ='top-150'),
-    path('stats/top-50-expenditure-clubs/', Top50expenditureclubsView.as_view(), name ='top-50')
+    path('stats/top-50-expenditure-clubs/', Top50expenditureclubsView.as_view(), name ='top-50'),
+    path('stats/transfer-records/', TransfersRecordsView.as_view(), name ='records'),
+    path('stats/top-50-clubs-by-income/', Top50incomeclubsView.as_view(), name='income50')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

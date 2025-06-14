@@ -18,42 +18,14 @@
     </div>
     <div class="content">
         <table class="playerss">
+          {% for player in players%}
           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ player.name     }}</td>
+            <td>{{ player.club }}</td>
+            <td>{{ player.price    }}</td>
           </tr>
-           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
-          </tr>
-           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
-          </tr>
-           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
-          </tr>
-           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
-          </tr>
-           <tr>
-            <td>1</td>
-            <td>Leo Messi</td>
-            <td>Inter Miami</td>
-            <td>35</td>
-          </tr>
+          {% endfor%}
           </table>
         <p> The transfer value of the player is a value of compensation for the  club, that allows to terminate the ongoing employment contract. Value indicated here  is a prediction of player's value analyzed by us for each football player. It is a list of players with transfer's value is at least 20 million euro.</p>
       </div>

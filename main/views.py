@@ -44,11 +44,19 @@ class LatestTransfersView(View):
 
 class PlayersView(View):
     def get(self, request):
-        return render(request, 'players.html')
+        players = Player.objects.all().order_by('-price')
+        context = {
+            'players': players,
+        }
+        return render(request, 'players.html', context)
 
 class U_20_PlayersView(View):
     def get(self, request):
-        return render(request, 'U_20_players.html')
+        players = Player.objects.filter(age__lt=21).order_by('-price')
+        context = {
+            'players': players,
+        }
+        return render(request, 'U_20_players.html', context)
 
 class TryoutsView(View):
     def get(self, request):
@@ -80,7 +88,7 @@ class Top150AccuratePredictionView(View):
         return render(request, 'stats/top-150-Accurate-predictions.html', context)
 
 class Top50expenditureclubsView(View):
-    def get(selfself,request):
+    def get(self,request):
         clubs = Club.objects.annotate(
             total_expend=Coalesce(
                 Sum('income_transfers__price'),
@@ -91,3 +99,25 @@ class Top50expenditureclubsView(View):
             'clubs': clubs
         }
         return render(request, 'stats/top-50-expenditure-clubs.html', context)
+
+class TransfersRecordsView(View):
+    def get(self,request):
+        transfers = Transfer.objects.filter(price__gte=50).order_by('-price')
+        context = {
+            'transfers': transfers,
+        }
+        return render(request, 'transfer-records.html', context)
+
+class Top50incomeclubsView(View):
+    def get(self,request):
+        clubs = Club.objects.annotate(
+            total_expend=Coalesce(
+                Sum('expenditure_transfers__price'),
+                Value(0.0),
+            )
+        ).order_by('-total_expend')[:50]
+        context = {
+            'clubs': clubs
+        }
+        return render(request, 'stats/top-50-clubs-by-income.html', context)
+
